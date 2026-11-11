@@ -1,144 +1,67 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Program Menghitung Tarif Parkir</title>
-
+    <title>Penghitung Tarif Parkir 💕</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <div class="container">
 
-        <header>
-            <h1>🌸 PROGRAM TARIF PARKIR 🌸</h1>
-            <p>Sistem Perhitungan Biaya Parkir Kendaraan</p>
-        </header>
+        <div class="flowers">💕 💐 🌺 🌸</div>
 
-        <section class="informasi">
+        <h1>Penghitung Tarif Parkir</h1>
 
-            <h2>Ketentuan Tarif Parkir</h2>
+        <p class="subtitle">
+            Hitung biaya parkir kendaraan dengan mudah!
+        </p>
 
-            <div class="tarif">
-
-                <div class="tarif-item">
-                    <h3>Rp3.000</h3>
-                    <p>Tarif 1 Jam Pertama</p>
-                </div>
-
-                <div class="tarif-item">
-                    <h3>Rp2.000</h3>
-                    <p>Setiap Jam Berikutnya</p>
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="perhitungan">
-
-            <h2>Hitung Biaya Parkir</h2>
-
-            <label for="lamaParkir">
-                Masukkan Lama Parkir (Jam)
-            </label>
+        <div class="form">
+            <label for="hours">Masukkan Lama Parkir (Jam)</label>
 
             <input
                 type="number"
-                id="lamaParkir"
+                id="hours"
                 placeholder="Contoh: 3"
                 min="1"
                 step="1"
             >
 
-            <div class="tombol">
+            <button onclick="hitungTarif()">
+                Hitung Tarif 🌸
+            </button>
+        </div>
 
-                <button onclick="hitungParkir()">
-                    HITUNG TARIF
-                </button>
+        <div class="result">
+            <h3>Total Tarif Parkir</h3>
 
-                <button onclick="resetParkir()" class="reset">
-                    RESET
-                </button>
+            <div id="total">Rp0</div>
 
-            </div>
+            <p id="message">
+                Silakan masukkan lama parkir 💐
+            </p>
+        </div>
 
-            <div id="hasil" class="hasil">
+        <div class="rules">
+            <h3>Ketentuan Tarif 🌺</h3>
 
-                <h3>Hasil Perhitungan</h3>
-
-                <p id="lama"></p>
-                <p id="tarifAwal"></p>
-                <p id="tarifTambahan"></p>
-
-                <h2 id="total"></h2>
-
-            </div>
-
-            <p id="pesan"></p>
-
-        </section>
-
-        <section class="pengujian">
-
-            <h2>Pengujian Program (Test Case)</h2>
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Lama Parkir</th>
-                        <th>Total Tarif</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>1 Jam</td>
-                        <td>Rp3.000</td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>3 Jam</td>
-                        <td>Rp7.000</td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>5 Jam</td>
-                        <td>Rp11.000</td>
-                    </tr>
-                </tbody>
-
-            </table>
-
-        </section>
+            <p>💕 Jam pertama: Rp3.000</p>
+            <p>🌸 Setiap jam berikutnya: Rp2.000</p>
+            <p>💐 Lama parkir harus bilangan bulat lebih dari 0.</p>
+        </div>
 
         <footer>
+            <p>Dibuat oleh:</p>
 
-            <h3>🌷 PROGRAM TARIF PARKIR 🌷</h3>
+            <strong>
+                Fauziyyah Filia Ramadhani
+                & Resky Ramadhani
+            </strong>
 
-            <p>Dibuat menggunakan HTML, CSS, dan JavaScript.</p>
-
-            <div class="pembuat">
-
-                <h3>DIBUAT OLEH:</h3>
-
-                <p>1. Fauziyyah Filia Ramadhani</p>
-                <p>2. Resky Ramadhani</p>
-
-            </div>
-
-            <p class="copyright">
-                © 2026 Program Menghitung Tarif Parkir
-            </p>
-
+            <p class="emoji">💕 💐 🌺 🌸</p>
         </footer>
 
     </div>
@@ -147,502 +70,229 @@
 
 </body>
 </html>
-/* =================================
-   PROGRAM TARIF PARKIR
-   TEMA PINK PASTEL
-================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffe4ec, #fff0f5);
     min-height: 100vh;
-    padding: 25px;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 
-/* CONTAINER */
+    background: linear-gradient(
+        135deg,
+        #ffd6e7,
+        #f7a8ca,
+        #fce4ec
+    );
+
+    color: #573344;
+}
 
 .container {
-    max-width: 850px;
-    margin: auto;
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 5px 25px rgba(190, 24, 93, 0.2);
-}
-
-/* HEADER */
-
-header {
-    background: linear-gradient(135deg, #ec4899, #be185d);
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-}
-
-header h1 {
-    font-size: 27px;
-    margin-bottom: 12px;
-}
-
-header p {
-    font-size: 15px;
-}
-
-/* INFORMASI TARIF */
-
-.informasi {
+    width: 100%;
+    max-width: 500px;
     padding: 30px;
+
+    background: white;
+    border-radius: 25px;
+
     text-align: center;
+
+    box-shadow: 0 10px 30px
+        rgba(180, 50, 100, 0.2);
 }
 
-.informasi h2 {
-    color: #be185d;
-    margin-bottom: 20px;
+.flowers {
+    font-size: 35px;
+    margin-bottom: 15px;
 }
 
-.tarif {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-.tarif-item {
-    background: #fce7f3;
-    padding: 25px;
-    border-radius: 15px;
-    width: 50%;
-    border: 1px solid #f9a8d4;
-}
-
-.tarif-item h3 {
-    color: #db2777;
-    font-size: 25px;
+h1 {
+    color: #d63384;
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
-/* PERHITUNGAN */
-
-.perhitungan {
-    padding: 30px;
-    background: #fff7fb;
+.subtitle {
+    color: #80556a;
+    margin-bottom: 25px;
+    line-height: 1.5;
 }
 
-.perhitungan h2 {
-    text-align: center;
-    color: #be185d;
-    margin-bottom: 25px;
+.form {
+    text-align: left;
 }
 
 label {
     display: block;
-    font-weight: bold;
     margin-bottom: 10px;
-    color: #9d174d;
+    font-weight: bold;
 }
 
 input {
     width: 100%;
     padding: 14px;
-    border: 2px solid #f9a8d4;
-    border-radius: 10px;
+
+    border: 2px solid #f3bfd4;
+    border-radius: 12px;
+
     font-size: 16px;
     outline: none;
 }
 
 input:focus {
-    border-color: #ec4899;
-}
-
-/* TOMBOL */
-
-.tombol {
-    display: flex;
-    gap: 12px;
-    margin-top: 20px;
+    border-color: #e75491;
 }
 
 button {
-    width: 50%;
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    background: #ec4899;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #be185d;
-    transform: translateY(-2px);
-}
-
-.reset {
-    background: #f472b6;
-}
-
-/* HASIL */
-
-.hasil {
-    display: none;
-    margin-top: 25px;
-    padding: 22px;
-    background: #fce7f3;
-    border-left: 5px solid #ec4899;
-    border-radius: 10px;
-}
-
-.hasil h3 {
-    color: #be185d;
-    margin-bottom: 15px;
-}
-
-.hasil p {
-    margin: 12px 0;
-    color: #9d174d;
-}
-
-.hasil h2 {
-    margin-top: 20px;
-    color: #db2777;
-}
-
-#pesan {
-    margin-top: 15px;
-    color: #be185d;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* TABEL PENGUJIAN */
-
-.pengujian {
-    padding: 30px;
-}
-
-.pengujian h2 {
-    text-align: center;
-    color: #be185d;
-    margin-bottom: 20px;
-}
-
-table {
     width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #f9a8d4;
     padding: 14px;
-    text-align: center;
-}
+    margin-top: 15px;
 
-th {
-    background: #db2777;
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #ed75a8,
+        #d83f83
+    );
+
     color: white;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
 }
 
-tr:nth-child(even) {
-    background: #fdf2f8;
+button:active {
+    transform: scale(0.97);
 }
 
-/* FOOTER */
+.result {
+    margin-top: 25px;
+    padding: 20px;
+
+    background: #fff0f6;
+    border: 1px dashed #ed8db5;
+    border-radius: 18px;
+}
+
+.result h3 {
+    color: #c92d70;
+    margin-bottom: 10px;
+}
+
+#total {
+    color: #d63384;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#message {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.rules {
+    margin-top: 25px;
+    padding: 18px;
+
+    text-align: left;
+
+    background: #fff8fb;
+    border-radius: 15px;
+}
+
+.rules h3 {
+    color: #d63384;
+    margin-bottom: 12px;
+}
+
+.rules p {
+    margin: 8px 0;
+    font-size: 14px;
+}
 
 footer {
-    background: linear-gradient(135deg, #be185d, #ec4899);
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
-    line-height: 1.8;
+    margin-top: 25px;
+    padding-top: 18px;
+
+    border-top: 1px solid #f7d5e3;
+
+    font-size: 13px;
+    line-height: 1.7;
 }
 
-footer h3 {
-    margin-bottom: 10px;
+footer strong {
+    color: #d63384;
 }
 
-.pembuat {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid #fbcfe8;
+.emoji {
+    font-size: 22px;
+    margin-top: 8px;
 }
 
-.pembuat h3 {
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+@media (max-width: 400px) {
+    .container {
+        padding: 22px 17px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
 }
 
-.pembuat p {
-    font-size: 15px;
-    margin: 8px 0;
-}
+function hitungTarif() {
 
-.copyright {
-    margin-top: 20px;
-    font-size: 12px;
-    opacity: 0.8;
-}
+    // Mengambil input lama parkir
+    const jam = Number(
+        document.getElementById("hours").value
+    );
 
-/* RESPONSIVE */
+    const total = document.getElementById("total");
+    const message = document.getElementById("message");
 
-@media screen and (max-width: 600px) {
+    // Memeriksa input
+    if (
+        document.getElementById("hours").value === "" ||
+        !Number.isInteger(jam) ||
+        jam <= 0
+    ) {
+        total.innerHTML = "Rp0";
 
-    body {
-        padding: 10px;
+        message.innerHTML =
+            "Masukkan lama parkir berupa bilangan bulat lebih dari 0! 🌸";
+
+        return;
     }
 
-    header h1 {
-        font-size: 21px;
-    }
+    let tarif;
 
-    .tarif {
-        flex-direction: column;
-    }
+    // Menghitung tarif parkir
+    if (jam === 1) {
 
-    .tarif-item {
-        width: 100%;
-    }
-
-    .tombol {
-        flex-direction: column;
-    }
-
-    button {
-        width: 100%;
-    }
-
-    th, td {
-        padding: 9px;
-        font-size: 12px;
-    }
-
-}
-// =============================================
-// PROGRAM MENGHITUNG TARIF PARKIR
-// =============================================
-
-// KETENTUAN TARIF PARKIR
-
-const tarifAwal = 3000;
-const tarifBerikutnya = 2000;
-
-
-// FUNGSI FORMAT RUPIAH
-
-function formatRupiah(angka) {
-
-    return new Intl.NumberFormat("id-ID", {
-        style: "currency",
-        currency: "IDR",
-        maximumFractionDigits: 0
-    }).format(angka);
-
-}
-
-
-// FUNGSI MENGHITUNG TARIF
-
-function hitungTarif(lamaParkir) {
-
-    if (!Number.isInteger(lamaParkir) || lamaParkir <= 0) {
-
-        return null;
-
-    }
-
-    let totalTarif;
-
-    if (lamaParkir === 1) {
-
-        totalTarif = tarifAwal;
+        tarif = 3000;
 
     } else {
 
-        let jamTambahan = lamaParkir - 1;
-
-        let biayaTambahan =
-            jamTambahan * tarifBerikutnya;
-
-        totalTarif =
-            tarifAwal + biayaTambahan;
+        tarif = 3000 + (jam - 1) * 2000;
 
     }
 
-    return totalTarif;
+    // Menampilkan hasil
+    total.innerHTML =
+        "Rp" + tarif.toLocaleString("id-ID");
+
+    message.innerHTML =
+        "Lama parkir " + jam +
+        " jam. Terima kasih! 💕";
 
 }
-
-
-// FUNGSI MENJALANKAN PERHITUNGAN
-
-function hitungParkir() {
-
-    let input =
-        document.getElementById("lamaParkir");
-
-    let lamaParkir = Number(input.value);
-
-    let hasil =
-        document.getElementById("hasil");
-
-    let pesan =
-        document.getElementById("pesan");
-
-
-    // VALIDASI INPUT KOSONG
-
-    if (input.value.trim() === "") {
-
-        hasil.style.display = "none";
-
-        pesan.innerHTML =
-            "Silakan masukkan lama parkir terlebih dahulu!";
-
-        return;
-
-    }
-
-
-    // VALIDASI INPUT
-
-    if (!Number.isInteger(lamaParkir) || lamaParkir <= 0) {
-
-        hasil.style.display = "none";
-
-        pesan.innerHTML =
-            "Lama parkir tidak valid! Masukkan bilangan bulat lebih dari 0.";
-
-        return;
-
-    }
-
-
-    // PROSES PERHITUNGAN
-
-    let totalTarif = hitungTarif(lamaParkir);
-
-    let biayaTambahan =
-        (lamaParkir - 1) * tarifBerikutnya;
-
-
-    // MENAMPILKAN HASIL
-
-    pesan.innerHTML = "";
-
-    hasil.style.display = "block";
-
-
-    document.getElementById("lama").innerHTML =
-        "Lama Parkir: " + lamaParkir + " Jam";
-
-
-    document.getElementById("tarifAwal").innerHTML =
-        "Tarif Jam Pertama: " + formatRupiah(tarifAwal);
-
-
-    document.getElementById("tarifTambahan").innerHTML =
-        "Biaya Jam Berikutnya: " +
-        formatRupiah(biayaTambahan);
-
-
-    document.getElementById("total").innerHTML =
-        "Total Pembayaran: " +
-        formatRupiah(totalTarif);
-
-}
-
-
-// FUNGSI RESET
-
-function resetParkir() {
-
-    document.getElementById("lamaParkir").value = "";
-
-    document.getElementById("hasil").style.display =
-        "none";
-
-    document.getElementById("pesan").innerHTML = "";
-
-}
-
-
-// =============================================
-// PENGUJIAN PROGRAM (TEST CASE)
-// =============================================
-
-function pengujianProgram() {
-
-    let testCase = [
-
-        {
-            jam: 1,
-            hasil: 3000
-        },
-
-        {
-            jam: 3,
-            hasil: 7000
-        },
-
-        {
-            jam: 5,
-            hasil: 11000
-        }
-
-    ];
-
-
-    console.log("====================================");
-
-    console.log("PENGUJIAN PROGRAM TARIF PARKIR");
-
-    console.log("====================================");
-
-
-    testCase.forEach(function(data, index) {
-
-        let hasilPerhitungan =
-            hitungTarif(data.jam);
-
-
-        console.log("Test Case:", index + 1);
-
-        console.log("Lama Parkir:", data.jam, "Jam");
-
-        console.log(
-            "Hasil:",
-            formatRupiah(hasilPerhitungan)
-        );
-
-
-        if (hasilPerhitungan === data.hasil) {
-
-            console.log("Status: BERHASIL");
-
-        } else {
-
-            console.log("Status: GAGAL");
-
-        }
-
-        console.log("--------------------------------");
-
-    });
-
-}
-
-
-// MENJALANKAN PENGUJIAN
-
-pengujianProgram();
-
-
-// =============================================
-// AKHIR PROGRAM
-// =============================================
